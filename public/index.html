@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no, address=no, email=no">
+    <title>Satriad · Komik</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="wrap">
+    <div class="toast" id="toast">Ditambahkan ke Favorit</div>
+
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer" id="drawer">
+        <div class="drawer-header"><h3>Menu</h3><div class="drawer-close" id="drawerClose"></div></div>
+        <div class="drawer-menu">
+            <div class="drawer-menu-item" id="menuFavorite"><div class="drawer-menu-icon icon-favorite"></div><span>Favorit</span></div>
+            <div class="drawer-menu-item" id="menuRanking"><div class="drawer-menu-icon icon-ranking"></div><span>Ranking</span></div>
+            <div class="drawer-menu-item" id="menuCategory"><div class="drawer-menu-icon icon-category"></div><span>Kategori</span></div>
+            <div class="drawer-submenu" id="categorySubmenu">
+                <div class="category-grid-drawer">
+                    <div class="category-box" data-genre="Drama">Drama</div>
+                    <div class="category-box" data-genre="Fantasi">Fantasi</div>
+                    <div class="category-box" data-genre="Kerajaan">Kerajaan</div>
+                    <div class="category-box" data-genre="Komedi">Komedi</div>
+                    <div class="category-box" data-genre="Aksi">Aksi</div>
+                    <div class="category-box" data-genre="Slice of life">Slice of life</div>
+                    <div class="category-box" data-genre="Romantis">Romantis</div>
+                    <div class="category-box" data-genre="Thriller">Thriller</div>
+                    <div class="category-box" data-genre="Horor">Horor</div>
+                    <div class="category-box" data-genre="WEBNOVEL">WEBNOVEL</div>
+                    <div class="category-box" data-genre="LOKAL">LOKAL</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="gnb">
+            <h1 class="logo"><a href="#" id="logoHome"><span class="blind">Satriad</span></a></h1>
+            <div class="gnb_btn_area">
+                <div class="btn_search" id="searchBtn"></div>
+                <div class="btn_menu" id="menuBtn"></div>
+            </div>
+        </div>
+        <div class="search-container" id="searchContainer">
+            <div class="search-input-wrapper">
+                <div class="search-icon-svg"></div>
+                <input type="text" class="search-input" id="searchInput" placeholder="Cari judul komik...">
+                <div class="search-clear" id="searchClear"></div>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+        <div class="lnb-wrapper">
+            <ul class="lnb" id="mainNav">
+                <li class="item active" data-page="home"><a class="link" href="#">HOME</a></li>
+                <li class="item" data-page="manga"><a class="link" href="#">MANGA</a></li>
+                <li class="item" data-page="manhwa"><a class="link" href="#">MANHWA</a></li>
+                <li class="item" data-page="manhua"><a class="link" href="#">MANHUA</a></li>
+                <li class="item" data-page="favoritku"><a class="link" href="#">FAVORITKU</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="page-container">
+        <div id="homePage" class="page active">
+            <main>
+                <div class="section_header">
+                    <h2 class="section_title">Lanjut Membaca</h2>
+                    <span class="button_view_all"></span>
+                </div>
+                <div class="continue-reading-section" id="continueReadingSection" style="display: none;">
+                    <div class="continue-item" id="continueReadingItem">
+                        <div class="continue-thumb" id="continueThumb"></div>
+                        <div class="continue-info">
+                            <div class="continue-title" id="continueTitle"></div>
+                            <div class="continue-episode" id="continueEpisode"></div>
+                            <div class="continue-progress-text">Tap untuk melanjutkan</div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="section_header">
+                    <h2 class="section_title">Serial Trending & Populer</h2>
+                    <span class="button_view_all"></span>
+                </a>
+                <ul class="main_section_tab" id="trendingTab">
+                    <li class="item"><button class="button active" data-tab="trending">Trending</button></li>
+                    <li class="item"><button class="button" data-tab="popular">Populer</button></li>
+                </ul>
+                <ul class="webtoon_list" id="trendingList"></ul>
+
+                <div class="category_tab_wrap" id="categoryTabs">
+                    <ul class="main_section_tab">
+                        <li class="item"><button class="button active">Drama</button></li>
+                        <li class="item"><button class="button">Fantasi</button></li>
+                        <li class="item"><button class="button">Kerajaan</button></li>
+                        <li class="item"><button class="button">Komedi</button></li>
+                        <li class="item"><button class="button">Aksi</button></li>
+                        <li class="item"><button class="button">Romantis</button></li>
+                        <li class="item"><button class="button">Thriller</button></li>
+                    </ul>
+                </div>
+                <div class="grid_3col" id="categoryGrid"></div>
+
+                <a href="#" class="section_header">
+                    <h2 class="section_title">Serial Terbaru Untukmu</h2>
+                    <span class="button_view_all"></span>
+                </a>
+                <div class="carousel_viewport">
+                    <ul class="carousel_list" id="newSeriesList"></ul>
+                </div>
+            </main>
+        </div>
+
+        <div id="mangaPage" class="page">
+            <div class="genre-header"><h2>MANGA</h2><p>Komik Jepang</p></div>
+            <div class="grid_3col" id="mangaGrid"></div>
+        </div>
+
+        <div id="manhwaPage" class="page">
+            <div class="genre-header"><h2>MANHWA</h2><p>Komik Korea Selatan</p></div>
+            <div class="grid_3col" id="manhwaGrid"></div>
+        </div>
+
+        <div id="manhuaPage" class="page">
+            <div class="genre-header"><h2>MANHUA</h2><p>Komik China</p></div>
+            <div class="grid_3col" id="manhuaGrid"></div>
+        </div>
+
+        <div id="favoritkuPage" class="page">
+            <div id="favoriteEmptyState" style="text-align:center; padding:60px 20px;">
+                <div style="width:80px;height:80px;margin:0 auto 20px;background:url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23ccc\' stroke-width=\'1.5\'%3E%3Cpath d=\'M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z\'/%3E%3C/svg%3E') center/contain no-repeat; opacity:0.5;"></div>
+                <h3 style="font-size:18px;margin-bottom:8px;color:#666;">Belum ada favorit</h3>
+                <p style="color:#999;">Klik ikon hati di halaman detail untuk menambah favorit</p>
+            </div>
+            <ul class="webtoon_list" id="favoriteList" style="display:none;"></ul>
+        </div>
+
+        <div id="detailPage" class="page">
+            <div class="detail-header">
+                <div class="detail-back" id="detailBack"></div>
+                <div class="detail-title-header" id="detailTitleHeader">Loading...</div>
+                <div style="width:24px;"></div>
+            </div>
+            <div class="detail-poster" id="detailPoster"></div>
+            <div class="detail-info">
+                <div class="detail-genre" id="detailGenre"></div>
+                <p class="detail-desc" id="detailDesc"></p>
+                <div class="detail-stats">
+                    <span id="detailRating">★ -</span>
+                    <span id="detailViews">👁 -</span>
+                </div>
+                <div class="favorite-btn-detail" id="detailFavoriteBtn">
+                    <div class="favorite-icon-detail"></div>
+                    <span id="favoriteBtnText">Tambah ke Favorit</span>
+                </div>
+            </div>
+            <div class="episode-section">
+                <div class="episode-header"><span>Episode</span><span style="color:#00d564;" id="episodeCount">-</span></div>
+                <div class="episode-list" id="episodeList"></div>
+            </div>
+        </div>
+
+        <div id="searchResultPage" class="page">
+            <div class="detail-header">
+                <div class="detail-back" id="searchBackBtn"></div>
+                <div class="detail-title-header">Hasil Pencarian</div>
+                <div style="width:24px;"></div>
+            </div>
+            <div class="search-result-full" id="searchResultFullList" style="padding:16px;"></div>
+        </div>
+    </div>
+
+    <div class="reader-mode" id="readerMode">
+        <div class="reader-header">
+            <div class="reader-close" id="readerClose"></div>
+            <div class="reader-title-header" id="readerTitle">Loading...</div>
+            <div style="width:24px;"></div>
+        </div>
+        <div class="reader-content" id="readerContent"></div>
+        <div class="reader-episode-thumbnails" id="readerThumbnails"></div>
+    </div>
+
+    <footer>
+        <div class="footer_sosmed">
+            <div class="sosmed_icons">
+                <a href="https://whatsapp.com/channel/0029VbBO6h6LY6czYDJ3bc1I" target="_blank" class="sosmed_icon icon-wa" id="waLink"></a>
+                <a href="https://tiktok.com/@misterystore" target="_blank" class="sosmed_icon icon-tiktok" id="tiktokLink"></a>
+                <a href="https://saweria.co/satriadev" target="_blank" class="sosmed_icon icon-donasi" id="donasiLink"></a>
+            </div>
+            <span class="foot_logo"></span>
+            <p class="copyright">© Satriadevs.</p>
+        </div>
+    </footer>
+</div>
+<script src="/app.js" type="module"></script>
+</body>
+</html>
